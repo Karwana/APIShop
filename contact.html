@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kontakta oss - APIShop</title>
+    
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">APIShop</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Produkter</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">Om oss</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="contact.html">Kontakta oss</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-dark text-white text-center py-5">
+        <div class="container">
+            <h1>Kontakta oss</h1>
+            <p>Vi vill gärna höra från dig!</p>
+        </div>
+    </header>
+
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card shadow">
+                        <div class="card-body p-5">
+                            <h3 class="mb-4">Kontaktformulär</h3>
+                            
+                            <form id="contact-form" novalidate>
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Namn *</label>
+                                    <input type="text" class="form-control" id="name" placeholder="För- och efternamn" required>
+                                    <div class="invalid-feedback" id="error-name"></div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">E-postadress *</label>
+                                    <input type="email" class="form-control" id="email" placeholder="Din.epost@exempel.se" required>
+                                    <div class="invalid-feedback" id="error-email"></div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="subject" class="form-label">Ämne *</label>
+                                    <input type="text" class="form-control" id="subject" placeholder="Vad gäller ärendet?" required>
+                                    <div class="invalid-feedback" id="error-subject"></div>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label for="message" class="form-label">Meddelande *</label>
+                                    <textarea class="form-control" id="message" rows="5" placeholder="Skriv ditt meddelande här..." required></textarea>
+                                    <div class="invalid-feedback" id="error-message"></div>
+                                </div>
+
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-primary btn-lg">Skicka meddelande</button>
+                                </div>
+                            </form>
+
+                            <div id="success-alert" class="alert alert-success mt-4" style="display: none;">
+                                <strong>Tack!</strong> Ditt meddelande har skickats. Vi återkommer så snart vi kan.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-5">
+                        <div class="col-md-4 text-center mb-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title">Adress</h5>
+                                    <p class="text-muted">Storgatan 123<br>111 22 Stockholm</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 text-center mb-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title">E-post</h5>
+                                    <p class="text-muted">info@apishop.se</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 text-center mb-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title">Telefon</h5>
+                                    <p class="text-muted">070-123 45 67</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white text-center py-4">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 APIShop. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="js/contact.js"></script>
+
+</body>
+</html>
