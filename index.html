@@ -47,7 +47,7 @@
         </div>
     </header>
 
-    <!-- Loading Spinner -->
+    <!-- Loading Spinner – döljs av products.js när produkterna är laddade -->
     <div id="loading" class="text-center py-5">
         <div class="spinner-border text-primary" role="status">
             <span class="visually-hidden">Laddar...</span>
@@ -55,16 +55,15 @@
         <p class="mt-2">Hämtar produkter...</p>
     </div>
 
-    <!-- Products Grid -->
+    <!-- Products Grid – fylls i dynamiskt av products.js -->
     <section class="py-5">
         <div class="container">
             <div class="row g-4" id="products-container">
-                <!-- Produkterna laddas in dynamiskt via scripts.js -->
             </div>
         </div>
     </section>
 
-    <!-- Order Modal -->
+    <!-- Order Modal – öppnas av openOrderModal() i order.js -->
     <div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -74,35 +73,36 @@
                 </div>
                 <div class="modal-body">
 
-                    <!-- Vald produkt -->
+                    <!-- Vald produkt – fylls i av openOrderModal() i order.js -->
                     <div class="d-flex align-items-center mb-4 p-3 bg-light rounded">
-                        <img id="modal-product-img" src="" alt="" style="width:80px; height:80px; object-fit:contain;" class="me-3">
+                        <img id="modal-product-img" src="" alt=""
+                             style="width: 80px; height: 80px; object-fit: contain;" class="me-3">
                         <div>
                             <h6 id="modal-product-title" class="mb-1"></h6>
                             <span class="text-success fw-bold" id="modal-product-price"></span>
                         </div>
                     </div>
 
-                    <!-- Beställningsformulär -->
+                    <!-- Beställningsformulär – valideras av validateForm() i order.js -->
                     <form id="order-form" novalidate>
 
                         <h6 class="mb-3">Dina uppgifter</h6>
 
-                        <!-- Namn -->
+                        <!-- Namn: min 2, max 50 tecken -->
                         <div class="mb-3">
                             <label for="field-name" class="form-label">Namn *</label>
                             <input type="text" class="form-control" id="field-name" placeholder="För- och efternamn">
                             <div class="invalid-feedback" id="error-name"></div>
                         </div>
 
-                        <!-- E-post -->
+                        <!-- E-post: måste innehålla @, max 50 tecken -->
                         <div class="mb-3">
                             <label for="field-email" class="form-label">E-postadress *</label>
                             <input type="text" class="form-control" id="field-email" placeholder="namn@exempel.se">
                             <div class="invalid-feedback" id="error-email"></div>
                         </div>
 
-                        <!-- Telefon -->
+                        <!-- Telefon: siffror, bindestreck, parenteser, max 20 tecken -->
                         <div class="mb-3">
                             <label for="field-phone" class="form-label">Telefonnummer *</label>
                             <input type="text" class="form-control" id="field-phone" placeholder="070-123 45 67">
@@ -111,7 +111,7 @@
 
                         <h6 class="mb-3 mt-4">Leveransadress</h6>
 
-                        <!-- Gatuadress -->
+                        <!-- Gatuadress: min 2, max 50 tecken -->
                         <div class="mb-3">
                             <label for="field-street" class="form-label">Gatuadress *</label>
                             <input type="text" class="form-control" id="field-street" placeholder="Storgatan 1">
@@ -119,14 +119,14 @@
                         </div>
 
                         <div class="row">
-                            <!-- Postnummer -->
+                            <!-- Postnummer: exakt 5 siffror -->
                             <div class="col-md-4 mb-3">
                                 <label for="field-zip" class="form-label">Postnummer *</label>
                                 <input type="text" class="form-control" id="field-zip" placeholder="12345">
                                 <div class="invalid-feedback" id="error-zip"></div>
                             </div>
 
-                            <!-- Ort -->
+                            <!-- Ort: min 2, max 20 tecken -->
                             <div class="col-md-8 mb-3">
                                 <label for="field-city" class="form-label">Ort *</label>
                                 <input type="text" class="form-control" id="field-city" placeholder="Stockholm">
@@ -134,26 +134,28 @@
                             </div>
                         </div>
 
-                        <!-- Dold produkt-id -->
+                        <!-- Dolt fält – lagrar produkt-id för vald produkt -->
                         <input type="hidden" id="field-product-id">
 
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Avbryt</button>
+                    <!-- Knappen kopplas till submitOrder() i order.js via addEventListener -->
                     <button type="button" class="btn btn-primary" id="submit-order">Lägg beställning</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Success Modal -->
+    <!-- Success Modal – visas av submitOrder() i order.js efter lyckad beställning -->
     <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content text-center p-4">
                 <div class="modal-body">
                     <div class="text-success mb-3" style="font-size: 3rem;">✓</div>
                     <h4>Tack för din beställning!</h4>
+                    <!-- Bekräftelsetexten sätts av submitOrder() i order.js -->
                     <p class="text-muted" id="success-message"></p>
                     <button type="button" class="btn btn-primary mt-2" data-bs-dismiss="modal">Stäng</button>
                 </div>
@@ -171,8 +173,9 @@
     <!-- Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Your Custom JavaScript -->
-    <script src="js/scripts.js"></script>
+    <!-- order.js laddas före products.js eftersom products.js anropar openOrderModal() som definieras i order.js -->
+    <script src="js/order.js"></script>
+    <script src="js/products.js"></script>
 
 </body>
 </html>
