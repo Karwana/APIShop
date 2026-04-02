@@ -8,7 +8,7 @@
 //  Hämtar produkter från Fake Store API med DummyJSON som backup
 
 const API_URL    = "https://fakestoreapi.com/products";
-const BACKUP_URL = "https://dummyjson.com/products?limit=20";
+const BACKUP_URL = "https://dummyjson.com/products?limit=16";
  
 // Hämta produkter
  
