@@ -8,7 +8,7 @@
 //  Hämtar produkter från Fake Store API med DummyJSON som backup och statisk lista som sista utväg
 
 const API_URL = "https://fakestoreapi.com/products";
-const BACKUP_URL = "https://dummyjson.com/products?limit=16";
+const BACKUP_URL = "https://dummyjson.com/products?limit=12";
 
 // Statisk backup – används om båda API:er är nere
 const STATIC_PRODUCTS = [
