@@ -57,13 +57,13 @@ function validateContactForm() {
 
 document.addEventListener("DOMContentLoaded", () => {
     const contactForm = document.getElementById("contact-form");
-    contactForm.addEventListener("submit", function(event) {
+    contactForm.addEventListener("submit", function (event) {
 
-        event.preventDefault(); 
+        event.preventDefault();
         if (validateContactForm()) {
             contactForm.style.display = "none";
             document.getElementById("success-alert").style.display = "block";
-            
+
         }
     });
 });

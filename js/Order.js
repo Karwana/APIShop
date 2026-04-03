@@ -2,20 +2,20 @@
 //  Hanterar beställning, formulär och orderbekräftelse
 let orderModal;
 let successModal;
- 
+
 
 // Tar emot produktdata direkt från products.js
 function openOrderModal(id, title, price, image) {
-    document.getElementById("modal-product-img").src           = image;
-    document.getElementById("modal-product-img").alt           = title;
+    document.getElementById("modal-product-img").src = image;
+    document.getElementById("modal-product-img").alt = title;
     document.getElementById("modal-product-title").textContent = title;
     document.getElementById("modal-product-price").textContent = "$" + Number(price).toFixed(2);
-    document.getElementById("field-product-id").value          = id;
- 
+    document.getElementById("field-product-id").value = id;
+
     resetForm();
     orderModal.show();
 }
- 
+
 // Markera fält som ogiltigt
 function setInvalid(fieldId, errorId, message) {
     const field = document.getElementById(fieldId);
@@ -25,8 +25,8 @@ function setInvalid(fieldId, errorId, message) {
     error.textContent = message;
     return false;
 }
- 
- 
+
+
 // Markera fält som giltigt
 function setValid(fieldId) {
     const field = document.getElementById(fieldId);
@@ -34,11 +34,11 @@ function setValid(fieldId) {
     field.classList.remove("is-invalid");
     return true;
 }
- 
+
 // Validera formuläret
 function validateForm() {
     let isValid = true;
- 
+
     // Namn: min 2, max 50 tecken
     const name = document.getElementById("field-name").value.trim();
     if (name.length < 2) {
@@ -50,7 +50,7 @@ function validateForm() {
     } else {
         setValid("field-name");
     }
- 
+
     // E-post: måste innehålla @, max 50 tecken
     const email = document.getElementById("field-email").value.trim();
     if (!email.includes("@")) {
@@ -62,11 +62,15 @@ function validateForm() {
     } else {
         setValid("field-email");
     }
- 
+
     // Telefon: siffror, bindestreck och parenteser, max 20 tecken
     const phone = document.getElementById("field-phone").value.trim();
     const phonePattern = /^[0-9\-()\s]+$/;
-    if (phone.length === 0 || !phonePattern.test(phone)) {
+
+    if (phone.length === 0) {
+        setInvalid("field-phone", "error-phone", "Telefonnummer krävs.");
+        isValid = false;
+    } else if (!phonePattern.test(phone)) {
         setInvalid("field-phone", "error-phone", "Telefonnumret får bara innehålla siffror, bindestreck och parenteser.");
         isValid = false;
     } else if (phone.length > 20) {
@@ -75,7 +79,7 @@ function validateForm() {
     } else {
         setValid("field-phone");
     }
- 
+
     // Gatuadress: min 2, max 50 tecken
     const street = document.getElementById("field-street").value.trim();
     if (street.length < 2) {
@@ -87,7 +91,7 @@ function validateForm() {
     } else {
         setValid("field-street");
     }
- 
+
     // Postnummer: exakt 5 siffror
     const zip = document.getElementById("field-zip").value.trim();
     const zipPattern = /^\d{5}$/;
@@ -97,7 +101,7 @@ function validateForm() {
     } else {
         setValid("field-zip");
     }
- 
+
     // Ort: min 2, max 20 tecken
     const city = document.getElementById("field-city").value.trim();
     if (city.length < 2) {
@@ -109,48 +113,48 @@ function validateForm() {
     } else {
         setValid("field-city");
     }
- 
+
     return isValid;
 }
- 
+
 // Skicka beställning
 function submitOrder() {
     if (!validateForm()) {
         return;
     }
- 
-    const name    = document.getElementById("field-name").value.trim();
-    const street  = document.getElementById("field-street").value.trim();
-    const zip     = document.getElementById("field-zip").value.trim();
-    const city    = document.getElementById("field-city").value.trim();
+
+    const name = document.getElementById("field-name").value.trim();
+    const street = document.getElementById("field-street").value.trim();
+    const zip = document.getElementById("field-zip").value.trim();
+    const city = document.getElementById("field-city").value.trim();
     const product = document.getElementById("modal-product-title").textContent;
- 
+
     orderModal.hide();
- 
+
     document.getElementById("success-message").textContent =
         name + ', din beställning av "' + product + '" skickas till ' + street + ", " + zip + " " + city + ".";
- 
+
     successModal.show();
 }
- 
+
 // Rensa formuläret
 function resetForm() {
     const form = document.getElementById("order-form");
- 
+
     form.querySelectorAll(".form-control").forEach(function (field) {
         field.value = "";
         field.classList.remove("is-valid", "is-invalid");
     });
- 
+
     form.querySelectorAll(".invalid-feedback").forEach(function (el) {
         el.textContent = "";
     });
 }
- 
+
 // Initialisering
 document.addEventListener("DOMContentLoaded", function () {
-    orderModal   = new bootstrap.Modal(document.getElementById("orderModal"));
+    orderModal = new bootstrap.Modal(document.getElementById("orderModal"));
     successModal = new bootstrap.Modal(document.getElementById("successModal"));
- 
+
     document.getElementById("submit-order").addEventListener("click", submitOrder);
 });
