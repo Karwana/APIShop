@@ -11,7 +11,6 @@
 </head>
 <body>
 
-    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="index.html">APIShop</a>
@@ -34,7 +33,6 @@
         </div>
     </nav>
 
-    <!-- Hero -->
     <header class="bg-dark text-white text-center py-5">
         <div class="container">
             <h1>Kontakta oss</h1>
@@ -42,7 +40,6 @@
         </div>
     </header>
 
-    <!-- Formulär -->
     <section class="py-5">
         <div class="container">
             <div class="row justify-content-center">
@@ -53,28 +50,24 @@
 
                             <form id="contact-form" novalidate>
 
-                                <!-- Namn -->
                                 <div class="mb-3">
                                     <label for="name" class="form-label">Namn *</label>
                                     <input type="text" class="form-control" id="name" placeholder="För- och efternamn" required>
                                     <div class="invalid-feedback" id="error-name"></div>
                                 </div>
 
-                                <!-- E-post -->
                                 <div class="mb-3">
                                     <label for="email" class="form-label">E-postadress *</label>
                                     <input type="email" class="form-control" id="email" placeholder="din.epost@exempel.se" required>
                                     <div class="invalid-feedback" id="error-email"></div>
                                 </div>
 
-                                <!-- Ämne -->
                                 <div class="mb-3">
                                     <label for="subject" class="form-label">Ämne *</label>
                                     <input type="text" class="form-control" id="subject" placeholder="Vad gäller ärendet?" required>
                                     <div class="invalid-feedback" id="error-subject"></div>
                                 </div>
 
-                                <!-- Meddelande -->
                                 <div class="mb-4">
                                     <label for="message" class="form-label">Meddelande *</label>
                                     <textarea class="form-control" id="message" rows="5" placeholder="Skriv ditt meddelande här..." required></textarea>
@@ -87,7 +80,7 @@
 
                             </form>
 
-                            <!-- Bekräftelse – visas av contact.js efter lyckad validering -->
+                            <!-- Bekräftelse efter lyckad validering -->
                             <div id="success-alert" class="alert alert-success mt-4" style="display: none;">
                                 <strong>Tack!</strong> Ditt meddelande har skickats. Vi återkommer så snart vi kan.
                             </div>
@@ -99,7 +92,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-dark text-white text-center py-4">
         <div class="container">
             <p class="mb-0">&copy; 2026 APIShop. All rights reserved.</p>

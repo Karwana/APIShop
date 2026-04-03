@@ -1,19 +1,10 @@
-/*!
-* Start Bootstrap - Shop Homepage v5.0.6 (https://startbootstrap.com/template/shop-homepage)
-* Copyright 2013-2023 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-shop-homepage/blob/master/LICENSE)
-*/
 
-//  APIShop – G-uppgift
 //  Hanterar beställning, formulär och orderbekräftelse
-
-// Referens till Bootstrap-modaler (skapas när DOM är klar)
 let orderModal;
 let successModal;
  
-// Öppna beställningsmodal
+
 // Tar emot produktdata direkt från products.js
- 
 function openOrderModal(id, title, price, image) {
     document.getElementById("modal-product-img").src           = image;
     document.getElementById("modal-product-img").alt           = title;
@@ -25,8 +16,7 @@ function openOrderModal(id, title, price, image) {
     orderModal.show();
 }
  
-// Hjälpfunktion – markera fält som ogiltigt
- 
+// Markera fält som ogiltigt
 function setInvalid(fieldId, errorId, message) {
     const field = document.getElementById(fieldId);
     const error = document.getElementById(errorId);
@@ -37,8 +27,7 @@ function setInvalid(fieldId, errorId, message) {
 }
  
  
-// Hjälpfunktion – markera fält som giltigt
- 
+// Markera fält som giltigt
 function setValid(fieldId) {
     const field = document.getElementById(fieldId);
     field.classList.add("is-valid");
@@ -47,7 +36,6 @@ function setValid(fieldId) {
 }
  
 // Validera formuläret
- 
 function validateForm() {
     let isValid = true;
  
@@ -126,7 +114,6 @@ function validateForm() {
 }
  
 // Skicka beställning
- 
 function submitOrder() {
     if (!validateForm()) {
         return;
@@ -147,7 +134,6 @@ function submitOrder() {
 }
  
 // Rensa formuläret
- 
 function resetForm() {
     const form = document.getElementById("order-form");
  
@@ -162,7 +148,6 @@ function resetForm() {
 }
  
 // Initialisering
- 
 document.addEventListener("DOMContentLoaded", function () {
     orderModal   = new bootstrap.Modal(document.getElementById("orderModal"));
     successModal = new bootstrap.Modal(document.getElementById("successModal"));
