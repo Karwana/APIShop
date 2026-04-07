@@ -12,22 +12,12 @@ const BACKUP_URL = "https://dummyjson.com/products?limit=12";
 
 // Statisk backup – används om båda API:er är nere
 const STATIC_PRODUCTS = [
-    { id: 1, title: "Fjallraven Foldsack Backpack", price: 109.95, image: "https://fakestoreapi.com/img/81fAn-U3g4L._AC_UL1500_.jpg" },
-    { id: 2, title: "Mens Casual Premium Slim Fit T-Shirts", price: 22.30, image: "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg" },
-    { id: 3, title: "Mens Cotton Jacket", price: 55.99, image: "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg" },
-    { id: 4, title: "Mens Casual Slim Fit", price: 15.99, image: "https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg" },
-    { id: 5, title: "John Hardy Women's Legends Naga Gold", price: 695.00, image: "https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL1500_.jpg" },
-    { id: 6, title: "Solid Gold Petite Micropave", price: 168.00, image: "https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_FMwebp_QL65_.jpg" },
-    { id: 7, title: "White Gold Plated Princess", price: 9.99, image: "https://fakestoreapi.com/img/71YAIFU48IL._AC_UL1500_.jpg" },
-    { id: 8, title: "Pierced Owl Rose Gold Plated Earrings", price: 10.99, image: "https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_FMwebp_QL65_.jpg" },
-    { id: 9, title: "WD 2TB Elements Portable Hard Drive", price: 64.00, image: "https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_.jpg" },
-    { id: 10, title: "SanDisk SSD PLUS 1TB", price: 109.00, image: "https://fakestoreapi.com/img/61U7T1koQqL._AC_SX679_.jpg" },
-    { id: 11, title: "Silicon Power 256GB SSD", price: 109.00, image: "https://fakestoreapi.com/img/71kWymZ+c+L._AC_SX679_.jpg" },
-    { id: 12, title: "WD 4TB Gaming Drive", price: 114.00, image: "https://fakestoreapi.com/img/61mtL65D4cL._AC_SX679_.jpg" },
-    { id: 13, title: "Acer SB220Q 21.5 inch Monitor", price: 599.00, image: "https://fakestoreapi.com/img/81QpkIctqPL._AC_SX679_.jpg" },
-    { id: 14, title: "Samsung 49-Inch CHG90 Monitor", price: 999.99, image: "https://fakestoreapi.com/img/81Zt42ioCgL._AC_SX679_.jpg" },
-    { id: 15, title: "BIYLACLESEN Women's 3-in-1 Jacket", price: 56.99, image: "https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg" },
-    { id: 16, title: "Lock and Love Women's Removable Hood", price: 29.95, image: "https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_.jpg" }
+    { id: 1, title: "Fjallraven Foldsack Backpack", price: 109.95, image: "img/1.jpg" },
+    { id: 2, title: "Mens Casual Premium Slim Fit T-Shirts", price: 22.30,image: "img/2.jpg" },
+    { id: 3, title: "Mens Cotton Jacket", price: 55.99, image: "img/3.jpg" },
+    { id: 4, title: "Mens Casual Slim Fit", price: 15.99, image: "img/4.jpg" },
+    { id: 5, title: "John Hardy Women's Legends Naga Gold", price: 695.00, image: "img/5.jpg" },
+    
 ];
 
 
@@ -53,7 +43,6 @@ function showSkeletons() {
         container.appendChild(col);
     }
 }
-
 
 // Ersätt skeletons med riktiga produktkort
 
@@ -94,7 +83,6 @@ function renderProducts(products) {
     });
 }
 
-
 // Hämta produkter
 
 async function fetchProducts() {
@@ -114,7 +102,6 @@ async function fetchProducts() {
         fetchBackup();
     }
 }
-
 
 // Hämta från backup-API
 
@@ -139,14 +126,12 @@ async function fetchBackup() {
     }
 }
 
-
 // Statisk fallback – sista utvägen
 
 function useStaticFallback() {
     showBanner("Båda API:erna är otillgängliga. Visar ett begränsat urval produkter.", "danger");
     renderProducts(STATIC_PRODUCTS);
 }
-
 
 // Normalisera DummyJSON till samma format som Fake Store
 
@@ -159,7 +144,6 @@ function normalizeProduct(p) {
     };
 }
 
-
 // Visa banner
 
 function showBanner(message, type) {
@@ -168,7 +152,6 @@ function showBanner(message, type) {
     banner.textContent = message;
     document.querySelector("header").insertAdjacentElement("afterend", banner);
 }
-
 
 // Initialisering
 
